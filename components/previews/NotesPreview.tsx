@@ -1,10 +1,11 @@
 export default function NotesPreview() {
   const items = [
-    { text: 'Swap: regular foundation → Ere Perez oat milk', done: true },
-    { text: 'Swap: lip gloss → Axiology tinted balm', done: true },
-    { text: 'Swap: mascara → Kjaer Weis', done: false },
-    { text: 'Swap: moisturiser → Pai Skincare', done: false },
-    { text: 'Swap: perfume → Ellis Brooklyn', done: false },
+    { text: 'Swap: regular foundation → Axiology Fungdation Mushroom Foundation', done: true },
+    { text: 'Swap: lip gloss → au Naturale High Lustre Lip Gloss', done: true },
+    { text: 'Swap: cheeks → NOTO Multi-Benne Stains', done: false },
+    { text: 'Swap: moisturiser → Graydon Skincare', done: false },
+    { text: 'Swap: perfume → RAAW Alchemy Perfume Oils', done: false },
+    { text: 'Swap: deodorant → MMT Natural Deodorant', done: false },
   ];
 
   return (
@@ -29,11 +30,11 @@ export default function NotesPreview() {
       <div className="px-4 pt-2 pb-3 border-b border-white/10">
         <div className="text-[10px] text-[#FFD60A] font-medium mb-1">Notes</div>
         <div className="text-base font-semibold text-white">Clean beauty swap list</div>
-        <div className="text-[10px] text-white/40 mt-0.5">Today at 9:41 AM — 5 items</div>
+        <div className="text-[10px] text-white/40 mt-0.5">Today at 9:41 AM — {items.length} items</div>
       </div>
 
       {/* Checklist */}
-      <div className="px-4 py-3 space-y-3">
+      <div className="px-4 py-2 space-y-2">
         {items.map((item, i) => (
           <div key={i} className="flex items-start gap-2.5">
             <div

@@ -45,7 +45,7 @@ export const creatives: Creative[] = [
     keyMessage:
       'Two friends discussing Axiology lipstick, with one recommending The V Spot — social proof through a familiar conversation format.',
     primaryCopy: 'Your friends are already shopping here.',
-    headline: 'Axiology, Mighty & more at The V Spot',
+    headline: 'Axiology, NOTO & more at The V Spot',
     cta: 'Shop Now',
     landingPage: 'thevspot.com.au/collections/all',
     strategyNote:
