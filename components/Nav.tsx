@@ -8,7 +8,7 @@ import SunriseMark from './SunriseMark';
 const tabs = [
   { label: 'Ad Creatives', href: '/', active: true },
   { label: 'Campaign Performance', href: '/campaign-performance', active: false },
-  { label: 'Email Hub', href: '/email-hub', active: false },
+  { label: 'Email Hub', href: '/email-hub', active: true },
 ];
 
 export default function Nav() {
