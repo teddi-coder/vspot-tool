@@ -218,6 +218,21 @@ function buildEmailHtml({
 </html>`;
 }
 
+/* ---------- Product fetch (calls our server-side proxy with web search) ---------- */
+
+async function fetchProductDetails(input: string): Promise<Product> {
+  const response = await fetch("/api/fetch-product", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ input }),
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error((err as { error?: string }).error ?? "Product not found.");
+  }
+  return response.json() as Promise<Product>;
+}
+
 /* ---------- AI copy generation (calls our server-side proxy) ---------- */
 
 async function generateCopy({
@@ -326,6 +341,9 @@ export default function VSpotEmailBuilder() {
   const [toneNote, setToneNote] = useState("");
   const [showShippingBar, setShowShippingBar] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
+  const [quickAdd, setQuickAdd] = useState("");
+  const [fetchingProduct, setFetchingProduct] = useState(false);
+  const [fetchError, setFetchError] = useState("");
   const [content, setContent] = useState<EmailContent | null>(null);
   const [chosenSubject, setChosenSubject] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -350,6 +368,25 @@ export default function VSpotEmailBuilder() {
 
   const addProduct = () =>
     setProducts([...products, { name: "", price: "", imageUrl: "", url: "" }]);
+
+  const quickAddProduct = async () => {
+    if (!quickAdd.trim() || fetchingProduct) return;
+    setFetchError("");
+    setFetchingProduct(true);
+    try {
+      const p = await fetchProductDetails(quickAdd.trim());
+      setProducts((prev) => [...prev, p]);
+      setQuickAdd("");
+    } catch (e) {
+      console.error(e);
+      setFetchError(
+        "Couldn't find that one automatically. Add it manually below, or try pasting the full product page URL."
+      );
+    } finally {
+      setFetchingProduct(false);
+    }
+  };
+
   const updateProduct = (i: number, field: keyof Product, val: string) => {
     const next = [...products];
     next[i] = { ...next[i], [field]: val };
@@ -564,9 +601,42 @@ export default function VSpotEmailBuilder() {
                 + Add product
               </button>
             </div>
+            <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
+              <input
+                value={quickAdd}
+                onChange={(e) => setQuickAdd(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && quickAddProduct()}
+                placeholder="Paste a product page URL or type the product name"
+                style={inputStyle}
+                disabled={fetchingProduct}
+              />
+              <button
+                onClick={quickAddProduct}
+                disabled={fetchingProduct}
+                style={{
+                  border: "none",
+                  background: fetchingProduct ? BRAND.stone : BRAND.sageDeep,
+                  color: "#FFFFFF",
+                  fontFamily: "'Karla', sans-serif",
+                  fontSize: 11,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                  padding: "0 18px",
+                  cursor: fetchingProduct ? "wait" : "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {fetchingProduct ? "Finding…" : "Fetch"}
+              </button>
+            </div>
+            {fetchError && (
+              <p style={{ fontFamily: "'Karla', sans-serif", fontSize: 12.5, color: BRAND.terracotta, margin: "0 0 10px 0" }}>
+                {fetchError}
+              </p>
+            )}
             {products.length === 0 && (
               <p style={{ fontFamily: "'Karla', sans-serif", fontSize: 13, color: BRAND.stone, margin: 0 }}>
-                Add products to show them as a shoppable grid in the email. Image and product links can be copied straight from the website.
+                Drop in a product link and Fetch will fill in the name, price and image for you. You can still add or edit anything manually.
               </p>
             )}
             {products.map((p, i) => (

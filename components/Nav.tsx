@@ -6,9 +6,10 @@ import HedgehogMark from './HedgehogMark';
 import SunriseMark from './SunriseMark';
 
 const tabs = [
-  { label: 'Ad Creatives', href: '/', active: true },
-  { label: 'Campaign Performance', href: '/campaign-performance', active: false },
-  { label: 'Email Hub', href: '/email-hub', active: true },
+  { label: 'Ad Creatives', href: '/', active: true, external: false },
+  { label: 'Campaign Performance', href: '/campaign-performance', active: false, external: false },
+  { label: 'Email Hub', href: '/email-hub', active: true, external: false },
+  { label: 'SEO Checklist', href: '/seo-checklist.html', active: true, external: true },
 ];
 
 export default function Nav() {
@@ -37,7 +38,7 @@ export default function Nav() {
 
         <nav className="flex gap-1 -mb-px">
           {tabs.map((tab) => {
-            const isCurrent = tab.href === '/' ? pathname === '/' : pathname.startsWith(tab.href);
+            const isCurrent = !tab.external && (tab.href === '/' ? pathname === '/' : pathname.startsWith(tab.href));
             return (
               <TabItem
                 key={tab.href}
@@ -45,6 +46,7 @@ export default function Nav() {
                 href={tab.href}
                 isCurrent={isCurrent}
                 isEnabled={tab.active}
+                external={tab.external}
               />
             );
           })}
@@ -59,11 +61,13 @@ function TabItem({
   href,
   isCurrent,
   isEnabled,
+  external,
 }: {
   label: string;
   href: string;
   isCurrent: boolean;
   isEnabled: boolean;
+  external: boolean;
 }) {
   const base =
     'px-4 py-3 text-sm font-medium rounded-t-md flex items-center gap-2 transition-colors';
@@ -79,15 +83,25 @@ function TabItem({
     );
   }
 
+  const className = `${base} ${
+    isCurrent
+      ? 'bg-[#F1F1F1] text-[#1B1918]'
+      : 'text-[#F1F1F1]/70 hover:text-[#F1F1F1] hover:bg-[#F1F1F1]/10'
+  }`;
+
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        {label}
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-50">
+          <path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={`${base} ${
-        isCurrent
-          ? 'bg-[#F1F1F1] text-[#1B1918]'
-          : 'text-[#F1F1F1]/70 hover:text-[#F1F1F1] hover:bg-[#F1F1F1]/10'
-      }`}
-    >
+    <Link href={href} className={className}>
       {label}
     </Link>
   );
