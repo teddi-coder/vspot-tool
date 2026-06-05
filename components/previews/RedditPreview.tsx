@@ -1,6 +1,6 @@
 export default function RedditPreview() {
   const comments = [
-    { user: 'u/veganbeautyau', text: 'YES!! They stock everything. Axiology, Ere Perez, Inika — been shopping there for years 😍', votes: 847 },
+    { user: 'u/veganbeautyau', text: 'YES!! They stock everything. Axiology, NOTO, Graydon Skincare — been shopping there for years 😍', votes: 847 },
     { user: 'u/skincareobsessed_mel', text: 'Not late at all but also… how. I discovered them last month and already spent way too much lol', votes: 312 },
     { user: 'u/natural.beauty.nerd', text: 'The V Spot is so good. Great range and everything is properly verified vegan, not just marketing', votes: 203 },
   ];
