@@ -1,10 +1,5 @@
-import ComingSoon from "@/components/ComingSoon";
+import VSpotEmailBuilder from "@/components/VSpotEmailBuilder";
 
 export default function EmailHubPage() {
-  return (
-    <ComingSoon
-      title="Email Hub"
-      description="Campaign calendar and email template browser — coming in phase 2."
-    />
-  );
+  return <VSpotEmailBuilder />;
 }
