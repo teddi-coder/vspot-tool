@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand IG Content — The V Spot</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --warm-black: #1B1918;
+    --grey-white: #F1F1F1;
+    --bright-blue: #7DD3FC;
+    --green: #65E499;
+    --warm-black-60: rgba(27,25,24,0.6);
+    --warm-black-10: rgba(27,25,24,0.1);
+  }
+
+  body {
+    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--grey-white);
+    color: var(--warm-black);
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--warm-black);
+    color: var(--grey-white);
+    padding: 0 24px;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .brand-lockup { display: flex; align-items: center; gap: 12px; }
+  .brand-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+  .brand-sub {
+    font-size: 10px;
+    color: rgba(241,241,241,0.5);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .hh-mark {
+    font-size: 10px;
+    color: rgba(241,241,241,0.4);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── Nav tabs ── */
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(241,241,241,0.6);
+    text-decoration: none;
+    border-radius: 6px 6px 0 0;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-tab:hover { color: var(--grey-white); background: rgba(241,241,241,0.1); }
+  .nav-tab.active { background: var(--grey-white); color: var(--warm-black); }
+  .nav-tab svg { opacity: 0.5; }
+
+  /* ── Page header ── */
+  .page-header {
+    background: var(--warm-black);
+    border-top: 1px solid rgba(241,241,241,0.08);
+    padding: 32px 24px 40px;
+  }
+  .page-header-inner { max-width: 1100px; margin: 0 auto; }
+  .page-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 300;
+    color: var(--grey-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .page-subtitle {
+    font-size: 13px;
+    color: rgba(241,241,241,0.5);
+    font-weight: 300;
+  }
+
+  /* ── Alerts ── */
+  .alerts-wrap {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .alert-card {
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .alert-info {
+    background: rgba(125,211,252,0.12);
+    border: 1px solid rgba(125,211,252,0.3);
+    color: var(--warm-black);
+  }
+  .alert-urgent {
+    background: rgba(101,228,153,0.1);
+    border: 1px solid rgba(101,228,153,0.35);
+    color: var(--warm-black);
+  }
+  .alert-card strong { font-weight: 600; }
+  .alert-card ul { margin-top: 8px; padding-left: 18px; }
+  .alert-card li { margin: 5px 0; }
+
+  /* ── Main content ── */
+  .main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 24px 80px;
+  }
+
+  /* ── Brand section ── */
+  .brand-section { margin-bottom: 52px; }
+  .brand-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .brand-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--warm-black-60);
+  }
+  .brand-name-h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--warm-black);
+    letter-spacing: -0.02em;
+  }
+  .brand-handle {
+    font-size: 12px;
+    color: var(--warm-black-60);
+    text-decoration: none;
+    font-weight: 400;
+  }
+  .brand-handle:hover { color: var(--warm-black); }
+  .tag-urgent {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(101,228,153,0.2);
+    color: #1a7a4a;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .brand-meta {
+    font-size: 12px;
+    color: var(--warm-black-60);
+    margin: 3px 0 10px;
+    font-weight: 300;
+  }
+  .brand-note {
+    background: white;
+    border: 1px solid var(--warm-black-10);
+    border-radius: 8px;
+    padding: 11px 15px;
+    font-size: 12px;
+    color: var(--warm-black-60);
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+  .brand-note strong { color: var(--warm-black); font-weight: 600; }
+  .brand-divider {
+    border: none;
+    border-top: 1px solid var(--warm-black-10);
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  /* ── Posts grid ── */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--warm-black-10);
+    box-shadow: 0 1px 3px rgba(27,25,24,0.06);
+    display: flex;
+    flex-direction: column;
+  }
+  .post-embed {
+    width: 100%;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    padding: 4px;
+  }
+  .post-embed blockquote {
+    margin: 0 auto !important;
+    min-width: 260px !important;
+  }
+  .post-meta {
+    padding: 12px 14px;
+    border-top: 1px solid var(--warm-black-10);
+    flex: 1;
+  }
+  .post-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 7px; }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+  .badge-reel { background: rgba(125,211,252,0.2); color: #1565a3; }
+  .badge-photo { background: rgba(101,228,153,0.2); color: #1a7a4a; }
+  .badge-urgent { background: rgba(220,50,50,0.1); color: #c0392b; }
+  .badge-star { background: rgba(255,200,0,0.15); color: #8a6800; }
+  .post-caption {
+    font-size: 11px;
+    color: var(--warm-black-60);
+    line-height: 1.55;
+  }
+  .post-link {
+    display: block;
+    text-align: center;
+    padding: 10px 14px;
+    background: var(--warm-black);
+    color: var(--grey-white);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .post-link:hover { background: #333; }
+
+  /* ── Footer ── */
+  .site-footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    color: var(--warm-black-60);
+    border-top: 1px solid var(--warm-black-10);
+  }
+
+  @media (max-width: 600px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .alerts-wrap, .main-content { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Site header (mirrors Nav.tsx) -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-lockup">
+      <div>
+        <div class="brand-name">The V Spot</div>
+        <div class="brand-sub">Marketing tools — powered by Hedgehog Marketing</div>
+      </div>
+    </div>
+    <div class="hh-mark">Hedgehog</div>
+  </div>
+  <nav class="nav-tabs">
+    <a class="nav-tab" href="/">Ad Creatives</a>
+    <a class="nav-tab" href="/campaign-performance">Campaign Performance</a>
+    <a class="nav-tab" href="/email-hub">Email Hub</a>
+    <a class="nav-tab" href="/seo-checklist.html" target="_blank">
+      SEO Checklist
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H4M9 1V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="nav-tab active" href="/ig-content.html">Brand IG Content</a>
+  </nav>
+</header>
+
+<!-- Page title -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1 class="page-title">Brand Instagram Content</h1>
+    <p class="page-subtitle">July 2026 · 13 active brands · 47 posts curated for repurposing</p>
+  </div>
+</div>
+
+<!-- Alerts -->
+<div class="alerts-wrap">
+  <div class="alert-card alert-info">
+    ℹ️ <strong>Au Natural Skinfood (@aunaturalskinfood)</strong> appears to have closed — last post Nov 2024, closing sale Oct 2024. Worth confirming with your buyer team before ordering.
+  </div>
+  <div class="alert-card alert-urgent">
+    ⚡ <strong>Time-sensitive this week:</strong>
+    <ul>
+      <li><strong>Blue Q sale ends 26 July</strong> — post the sale reel today if you haven't already</li>
+      <li><strong>Kindia launches 31 July</strong> — share the teaser reels now to build anticipation</li>
+      <li><strong>Plastic Free July (all month)</strong> — Axiology reels are very timely right now</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ────── MAIN CONTENT ────── -->
+<main class="main-content">
+
+  <!-- 1. AXIOLOGY -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">01 ·</span>
+      <h2 class="brand-name-h2">Axiology</h2>
+      <a class="brand-handle" href="https://www.instagram.com/axiology_beauty/" target="_blank">@axiology_beauty ↗</a>
+    </div>
+    <p class="brand-meta">97.4K followers · Plastic-free makeup + plant-based beauty</p>
+    <div class="brand-note">Best for: Plastic Free July content (very timely!), sustainability storytelling, eco-values posts.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DaylMD3D8eq/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Did you know Axiology's outer packaging is made from paper trash? ♻️ Our boxes are handcrafted in Bali by a woman-owned workshop using recycled paper waste."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DaylMD3D8eq/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DagiyQJCV9-/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Happy Plastic Free July! I challenge you to make a visit to even just one refill store this month!"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DagiyQJCV9-/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DaD7enWjKuf/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Cruelty free plastic free makeup? Count me IN."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DaD7enWjKuf/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZ-reeBvznT/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"From discarded paper to makeup packaging ♻️! Every Axiology box starts as paper waste collected around the island of Bali..."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DZ-reeBvznT/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 2. PATCH -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">02 ·</span>
+      <h2 class="brand-name-h2">Patch</h2>
+      <a class="brand-handle" href="https://www.instagram.com/patchstrips/" target="_blank">@patchstrips ↗</a>
+    </div>
+    <p class="brand-meta">32.5K followers · Natural bamboo bandages · Melbourne 🇦🇺</p>
+    <div class="brand-note">Best for: Family/wellness audience, parenting content, back to school.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXavyqjE6pa/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Send your kids back to school this term prepared for it all with slim line mixed kids packs ✨🌿"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DXavyqjE6pa/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVzjGnnE54e/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Ready for life's little mishaps 🐾 Be prepared with the PATCH Eco First-Aid Kit for Pets 🌿"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DVzjGnnE54e/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVPjyhQEwjl/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"BACK IN STOCK ‼️ Shop our bamboo value packs — keep you covered for all of life's bumps and scrapes 🌿🩹"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DVPjyhQEwjl/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 3. RAAW ALCHEMY -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">03 ·</span>
+      <h2 class="brand-name-h2">RAAW Alchemy</h2>
+      <a class="brand-handle" href="https://www.instagram.com/raawalchemy/" target="_blank">@raawalchemy ↗</a>
+    </div>
+    <p class="brand-meta">33.1K followers · Award-winning perfumes + clean beauty · Denmark</p>
+    <div class="brand-note">Best for: Luxury/editorial feel, aspirational lifestyle, summer fragrance content.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Da-zcflCj1O/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Summer, bottled. No Vacancy captures warm days by the sea with fresh citrus and salty air... Which summer scent are you wearing?"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/Da-zcflCj1O/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DavWVZSIF77/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Every fragrance begins with a feeling. Coco Santal was inspired by a quiet moment in a small beach house on Kho Lipe, where sun warmed skin, sea salt lingered in the air."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DavWVZSIF77/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Da0f7SVnExj/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Fragrance is more than a finishing touch. Each RAAW Alchemy scent evolves naturally with your skin, revealing itself throughout the day."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/Da0f7SVnExj/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 4. LUNA NECTAR -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">04 ·</span>
+      <h2 class="brand-name-h2">Luna Nectar</h2>
+      <a class="brand-handle" href="https://www.instagram.com/lunanectar/" target="_blank">@lunanectar ↗</a>
+    </div>
+    <p class="brand-meta">23.8K followers · Premium Natural Hair Care (TCM adaptogens)</p>
+    <div class="brand-note">Best for: "Meet the brand" intro content, holistic wellness, TCM/adaptogens education.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DP7EiPCDa-7/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"From quiet beginnings to beauty cabinets across the country — Luna Nectar proves that rituals rooted in ancient wisdom and modern science can go global 🌙✨"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DP7EiPCDa-7/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Daxw5b3iKTF/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Caught our founder mid-photobooth with the lineup she actually reaches for ✨ Nocturne Magnesium Spray, Renaissance Pre-Wash Hair Oil, Atmosphere Scalp Serum..."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Daxw5b3iKTF/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 5. BLUE Q -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">05 ·</span>
+      <h2 class="brand-name-h2">Blue Q</h2>
+      <a class="brand-handle" href="https://www.instagram.com/blue_q/" target="_blank">@blue_q ↗</a>
+      <span class="tag-urgent">⚡ Sale ends 26 July</span>
+    </div>
+    <p class="brand-meta">66.3K followers · Humorous artist-designed socks, bags + gifts</p>
+    <div class="brand-note"><strong>Post the sale reel today — it ends 26 July.</strong> Great for fun/playful posts, gift ideas, levity in the feed.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Dalgw2oomHR/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span><span class="badge badge-urgent">⚡ Time sensitive</span></div>
+          <p class="post-caption">"Everything in our sale section is an extra 26% off! Now through 7/26."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Dalgw2oomHR/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Da5mdIeu6wi/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"WARNING: Do not wear a Blue Q Handy Tote as a hat without adult supervision. Seth doesn't count."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Da5mdIeu6wi/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DavvCuCoIRI/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"In this game, fire represents your life. So get smoldering, sister!"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DavvCuCoIRI/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Dan5M2bouqn/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">Alignment chart meme — very shareable format, great for engagement.</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/Dan5M2bouqn/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 6. DEW MIGHTY -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">06 ·</span>
+      <h2 class="brand-name-h2">Dew Mighty</h2>
+      <a class="brand-handle" href="https://www.instagram.com/dewmighty/" target="_blank">@dewmighty ↗</a>
+    </div>
+    <p class="brand-meta">28.8K followers · Plastic-free waterless skincare (Jelly Bars)</p>
+    <div class="brand-note">Best for: Summer skincare, sunburn recovery, zero-waste storytelling. Very on-brand for VSpot's eco values.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DaYufC_yrgL/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Iykyk ☀️ sunburn saver — BLOOM — literally priceless. We get sent burn testimonials weekly bc we are the only brand packing calming + soothing clinical actives that repair barrier overnight!"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DaYufC_yrgL/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DHentHlyC_G/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"☀️ Forget to reapply? Don't we all... luckily BLOOM is the hero serum that calms and heals to beat that sunburn."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DHentHlyC_G/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DOXDKnWAUtf/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"What happens at the very end? Crush that tiny dew and it disappears into skin like the first day of swiping." Zero-waste end-of-life story.</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DOXDKnWAUtf/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 7. KINDIA -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">07 ·</span>
+      <h2 class="brand-name-h2">Kindia</h2>
+      <a class="brand-handle" href="https://www.instagram.com/kindiabeauty/" target="_blank">@kindiabeauty ↗</a>
+      <span class="tag-urgent">🗓️ Launches 31 July</span>
+    </div>
+    <p class="brand-meta">7.6K followers · Skincare from Indian + Kenyan heritage · LA</p>
+    <div class="brand-note"><strong>Share these reels now</strong> to build anticipation ahead of the July 31 launch. Perfect "new arrival" teaser content.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Da5oK9pR97k/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"in the beginning, there was a lotus. every creation story in our culture starts beneath the surface… launching july 31st."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Da5oK9pR97k/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Da3BA8CRcgE/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"you're invited to a seat at the table. launching july 31st."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Da3BA8CRcgE/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Dax4Q2wxmWj/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"get your masala dabba ready, we're about to cook 🌶️😋🍽️ launching july 31st, 2026."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Dax4Q2wxmWj/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DankhBixhbf/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"what it really takes to launch a successful photoshoot 📸" — BTS campaign content.</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DankhBixhbf/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 8. YAROK -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">08 ·</span>
+      <h2 class="brand-name-h2">Yarok</h2>
+      <a class="brand-handle" href="https://www.instagram.com/yarok_hair/" target="_blank">@yarok_hair ↗</a>
+    </div>
+    <p class="brand-meta">12K followers · Plant-based hair care · Hudson NY</p>
+    <div class="brand-note"><strong>@thevspotaus has already commented on the founder reel below</strong> — great one to reshare and strengthen that relationship.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZLChpINcnY/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span><span class="badge badge-star">⭐ VSpot commented here</span></div>
+          <p class="post-caption">"Somewhere between New York City, Hudson, fatherhood, and building Yarok, I learned that growth isn't always about adding more. Sometimes it's about returning to what matters most."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DZLChpINcnY/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DantuzYjgnM/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Eight simple tips I share with my clients every summer. Small changes — like wetting your hair before swimming, skipping tight ponytails on wet hair, wearing a hat during peak sun hours — can make a big difference."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DantuzYjgnM/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DaikxDIjn64/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"The Yarok Ultimate Summer Bun ☀️ Three essentials: 🌿 Hydrate. ☁️ Add texture. ✨ Lock it in."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DaikxDIjn64/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 9. PAPAYA REUSABLES -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">09 ·</span>
+      <h2 class="brand-name-h2">Papaya Reusables</h2>
+      <a class="brand-handle" href="https://www.instagram.com/papayareusables/" target="_blank">@papayareusables ↗</a>
+    </div>
+    <p class="brand-meta">309K followers · Reusable Paper Towels · Female-founded · In Whole Foods</p>
+    <div class="brand-note">Their hero stat "1 sheet replaces 17 rolls!" is extremely shareable. 309K following means even mid-performing posts get big reach.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Da_EVSnCAL5/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"This isn't just a paper towel replacement, it's a full-blown upgrade."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Da_EVSnCAL5/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DatC1aUElQG/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Paper towels, rags, sponges, napkins, wipes...? Ya Papaya" — eco swap comparison content.</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DatC1aUElQG/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/CefEfBRA1MZ/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Want to try out Papaya paper towels but not sure where to start? Watch this ☝️" — beginner-friendly how-to video.</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/CefEfBRA1MZ/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 10. VERED -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">10 ·</span>
+      <h2 class="brand-name-h2">Vered Organic Botanicals</h2>
+      <a class="brand-handle" href="https://www.instagram.com/veredorganicbotanicals/" target="_blank">@veredorganicbotanicals ↗</a>
+    </div>
+    <p class="brand-meta">4.7K followers · Eco-luxe skincare + perfume · Herbalist-founded 2009</p>
+    <div class="brand-note">Best for: Premium product spotlights, botanical/organic positioning, luxe lifestyle feel.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DaddxTVt-U4/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Our Orange Sauvage Body Oil: an exotic sensory journey that cocoons your skin in luxury while awakening your senses with delight."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DaddxTVt-U4/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZnMCHINtIN/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Summer vibe your beauty from nature. 🌹❤️🌹"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DZnMCHINtIN/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DWrCGmDDYi-/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Spring is nature's way of reminding us that renewal doesn't need to be forced… Working with clean, organic flowers and botanicals is not just about skincare for me, it's about capturing that exact moment of renewal…"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DWrCGmDDYi-/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 11. EARL OF EAST -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">11 ·</span>
+      <h2 class="brand-name-h2">Earl of East</h2>
+      <a class="brand-handle" href="https://www.instagram.com/earlofeast/" target="_blank">@earlofeast ↗</a>
+    </div>
+    <p class="brand-meta">48.8K followers · Lifestyle — Home Fragrance, Bath &amp; Body · London</p>
+    <div class="brand-note">Best for: Aspirational home/lifestyle content, aesthetics-first posts, showing VSpot's curation beyond beauty.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Da865keE5f4/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Barro by HAY. A tableware collection with soft curves, generous shapes and an easy mix of colour. Made for everyday meals, long lunches and anything in between."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/Da865keE5f4/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Da482ExmeZl/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Ciliegia, our cherry candle. Juicy cherry, soft vanilla and dark blackberry — sweet, warm and made for the table."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/Da482ExmeZl/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DanJBNTDiqi/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">"Keep your cool. XXL ice cube trays from @haydesign — perfect for long drinks, iced coffee and properly chilled summer serves."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DanJBNTDiqi/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 12. MEOW MEOW TWEET -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">12 ·</span>
+      <h2 class="brand-name-h2">Meow Meow Tweet</h2>
+      <a class="brand-handle" href="https://www.instagram.com/meowmeowtweet/" target="_blank">@meowmeowtweet ↗</a>
+    </div>
+    <p class="brand-meta">57.8K followers · Low-waste vegan skincare · B-Corp · Queer + Asian owned</p>
+    <div class="brand-note">Best for: Inclusive/values-driven content, playful brand moments, real people using products. The cat imagery is memorable and very shareable.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Da5iO0aOKBa/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Harnesses the power of plants to turn the page on dull skin — revealing your best face yet. True renewal starts here!"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Da5iO0aOKBa/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DaVX9rRm9fa/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-photo">📷 Post</span></div>
+          <p class="post-caption">Cat photo — very on-brand, delightful, highly shareable.</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/p/DaVX9rRm9fa/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+  <hr class="brand-divider">
+
+  <!-- 13. RAY SKINCARE -->
+  <div class="brand-section">
+    <div class="brand-header">
+      <span class="brand-num">13 ·</span>
+      <h2 class="brand-name-h2">Ray Skincare</h2>
+      <a class="brand-handle" href="https://www.instagram.com/we_are_ray/" target="_blank">@we_are_ray ↗</a>
+    </div>
+    <p class="brand-meta">6K followers · Australian Made Botanical Skincare · Hormone conscious</p>
+    <div class="brand-note">Best for: "Meet the Brand" / founder intro content, Australian-made credentials, authentic behind-the-scenes. Farryn is the face of the brand — very community-led.</div>
+    <div class="posts-grid">
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DOCKEA-5iwA/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"I'm so glad you're here! ✨ Hi I'm Farryn, the face behind Ray Skincare. Ray was created to fill the gap in natural, effective skincare — products that are thoughtfully formulated and actually work."</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DOCKEA-5iwA/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DH8NYzcz9gz/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Get to know Farryn ❤️ I am so grateful to share my journey with you all and couldn't do it without my beautiful community x"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/DH8NYzcz9gz/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Dat4HpCuT6B/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"Stay hydrated inside &amp; out 💧🩷 #naturalskincare #collagen #organicskincare #sensitiveskin #faceoil"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Dat4HpCuT6B/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+      <div class="post-card">
+        <div class="post-embed">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Dam2YXKITQS/?utm_source=ig_embed" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="post-meta">
+          <div class="post-badges"><span class="badge badge-reel">🎬 Reel</span></div>
+          <p class="post-caption">"NEW PRODUCT VLOG PART 2 💚 trial day two, stay tuned for more updates #naturalskincare"</p>
+        </div>
+        <a class="post-link" href="https://www.instagram.com/reel/Dam2YXKITQS/" target="_blank">Open on Instagram ↗</a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Powered by Hedgehog Marketing · Always tag the brand's @handle when resharing · DM brands before posting Reels in-feed
+</footer>
+
+<script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>

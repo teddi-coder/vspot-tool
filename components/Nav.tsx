@@ -10,6 +10,7 @@ const tabs = [
   { label: 'Campaign Performance', href: '/campaign-performance', active: false, external: false },
   { label: 'Email Hub', href: '/email-hub', active: true, external: false },
   { label: 'SEO Checklist', href: '/seo-checklist.html', active: true, external: true },
+  { label: 'Brand IG Content', href: '/ig-content.html', active: true, external: true },
 ];
 
 export default function Nav() {
